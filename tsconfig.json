@@ -1,12 +1,9 @@
 {
+  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "noImplicitAny": false,
-    "pretty": true,
-    "sourceMap": true
+    "outDir": "./dist",
+    "rootDir": "./"
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts"],
+  "exclude": ["dist", "node_modules"]
 }
