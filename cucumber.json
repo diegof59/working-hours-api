@@ -1,0 +1,8 @@
+{
+  "default": {
+    "require": ["tests/steps/**/*.ts"],
+    "requireModule": ["tsx/register"],
+    "paths": ["tests/features/**/*.feature"],
+    "publishQuiet": true
+  }
+}

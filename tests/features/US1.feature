@@ -1,7 +1,7 @@
 Feature: US1 - Agregar días y/o horas laborales a una fecha y hora dados
 
 Background: Given Working Hours API está ejecutandose
-              And Capta Holidays API está ejecutandose
+              And Capta Holidays API está disponible y accesible 
 
 # User : Trabajador <- Donald
 
@@ -9,13 +9,13 @@ Rule: Si la fecha y hora inicial no están dentro del horario laboral colombiano
 
 Rule: Los festivos obtenidos de la Capta Holidays API son días no laborales
 
-Rule: response is a JSON with key date and value <result-datetime>
+Rule: response is a JSON with key date and value "<result-datetime>"
 
 
-Scenario Outline: Donald provee a la API <init-datetime> como fecha y hora iniciales y le suma <days> días
-  When Donald provee una fecha y hora iniciales de <init-datetime> en UTC
-    And Donald suma <days> número de días
-  Then Donald recibe como respuesta <result-datetime> en UTC
+Scenario Outline: Donald provee a la API fecha y hora inicial y le suma días
+  When Donald provee una fecha y hora iniciales de "<init-datetime>" en UTC
+    And Donald suma "<days>" número de días
+  Then Donald recibe como respuesta "<result-datetime>" en UTC
 
 Examples:
   | init-datetime             | days | result-datetime        |
@@ -27,10 +27,10 @@ Examples:
   | 2025-10-10T14:00:00Z      | 7    | 2025-10-22T14:00:00Z   |
 
 
-Scenario Outline: Donald provee a la API <init-datetime> como fecha y hora iniciales y le suma <hours> horas
-  When Donald provee una fecha y hora iniciales de <init-datetime> en UTC
-    And Donald suma <hours> número de horas
-  Then Donald recibe como respuesta <result-datetime> en UTC
+Scenario Outline: Donald provee a la API fecha y hora inicial y le suma horas
+  When Donald provee una fecha y hora iniciales de "<init-datetime>" en UTC
+    And Donald suma "<hours>" número de horas
+  Then Donald recibe como respuesta "<result-datetime>" en UTC
 
 Examples:
   | init-datetime             | hours | result-datetime        |
@@ -49,11 +49,11 @@ Examples:
   | 2025-10-06T17:45:00Z      | 2     | 2025-10-06T19:00:00Z   |
 
 
-Scenario Outline: Donald provee a la API <init-datetime> como fecha y hora iniciales y le suma <days> y <hours> horas
-  When Donald provee una fecha y hora iniciales de <init-datetime> en UTC
-    And Donald suma <days> número de días
-    And Donald suma <hours> número de horas
-  Then Donald recibe como respuesta <result-datetime> en UTC
+Scenario Outline: Donald provee a la API fecha y hora inicial y le suma días y horas
+  When Donald provee una fecha y hora iniciales de "<init-datetime>" en UTC
+    And Donald suma "<days>" número de días
+    And Donald suma "<hours>" número de horas
+  Then Donald recibe como respuesta "<result-datetime>" en UTC
 
 Examples:
   | init-datetime             | days  | hours | result-datetime        |
@@ -71,13 +71,13 @@ Examples:
   | 2025-10-15T13:30:00Z      | 3     | 3     | 2025-10-20T16:30:00Z   |
   | 2025-10-06T17:45:00Z      | 2     | 2     | 2025-10-08T19:00:00Z   |
 
-Scenario Outline: Donald provee a la API <init-datetime> como fecha y hora iniciales pero no provee <days> ni <hours> horas para sumar
-  When Donald provee una fecha y hora iniciales de <init-datetime> en UTC
-    And Donald no provee <days> días ni <hours> horas a sumar
+Scenario Outline: Donald provee a la API fecha y hora iniciales pero no provee días ni horas a sumar
+  When Donald provee una fecha y hora iniciales de "<init-datetime>" en UTC
+    And Donald no provee "<days>" días ni "<hours>" horas a sumar
   Then Donald recibe como respuesta el error "InvalidParameters" con message "No se enviaron horas ni días a adicionar"
 
 Examples:
-  | init-datetime        | days | hours | error               | message                           |
+  | init-datetime        | days | hours | error               | message                                    |
   | 2025-10-07T13:00:00Z |      |       | "InvalidParameters" | "No se enviaron horas ni días a adicionar" |
   | 2025-10-10T13:00:00Z |      |       | "InvalidParameters" | "No se enviaron horas ni días a adicionar" |
 

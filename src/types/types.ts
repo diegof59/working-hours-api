@@ -1,29 +1,29 @@
 
 
-interface QueryWorkingHours {
+export interface QueryWorkingHours {
   date?: string;
   days?: string;
   hours?: string;
 }
 
-interface OkResponse {
+export interface OkResponse {
   date: string; // ISO 8601 UTC DateTime
 }
 
-interface ErrorResponse {
+export interface ErrorResponse {
   error: string;
   message: string;
 }
 
 
-interface WorkHours {
+export interface WorkHours {
   // ToDo Date & Time ranges [en COL tz] to filter if DateTime is WH
 }
 
-interface CalcHours {
+export interface CalcHours {
   // ToDo DateTime en COL timezone to work with
 }
 
-interface Holiday {
+export interface Holiday {
   // ToDo DateTimes COL Holidays gotten from Capta Holidays API
 }
