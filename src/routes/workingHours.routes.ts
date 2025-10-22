@@ -1,12 +1,9 @@
 import { Router } from "express";
-import { Request, Response } from "express";
-
-import { QueryWorkingHours } from "#types/types.js";
+import { getWorkingHours } from "#controllers/workingHours.controller.js";
 
 const router: Router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-  res.json({ message: "Working hours API" });
-});
+// GET /api/v1/working-hours/
+router.get('/', getWorkingHours);
 
 export default router;

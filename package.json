@@ -27,7 +27,7 @@
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test:features": "cucumber-js --config cucumber.mjs"
+    "test:features": "cucumber-js --config cucumber.json"
   },
   "imports": {
     "#*": "./src/*",
@@ -41,6 +41,7 @@
     "@cucumber/cucumber": "^12.2.0",
     "@tsconfig/node22": "^22.0.2",
     "@types/express": "^5.0.3",
+    "@types/luxon": "^3.7.1",
     "@types/node": "^24.7.2",
     "@types/supertest": "^6.0.3",
     "supertest": "^7.1.4",

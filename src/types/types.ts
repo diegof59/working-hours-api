@@ -15,15 +15,11 @@ export interface ErrorResponse {
   message: string;
 }
 
-
-export interface WorkHours {
-  // ToDo Date & Time ranges [en COL tz] to filter if DateTime is WH
-}
-
-export interface CalcHours {
-  // ToDo DateTime en COL timezone to work with
+export interface TimeDelta {
+  days?: number;
+  hours?: number
 }
 
 export interface Holiday {
-  // ToDo DateTimes COL Holidays gotten from Capta Holidays API
+  date: `${number}-${number}-${number}`; // Enforces ISO date format yyyy-MM-dd
 }
